@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/RegisterTrabajador.css';
+import {Link } from 'react-router-dom';
 
 const RegisterTrabajador = () => {
   const [formData, setFormData] = useState({
@@ -66,7 +67,9 @@ const RegisterTrabajador = () => {
         <option value="Jardinero">Jardinero</option>
       </select>
       <button type="submit">Registrarme ahora</button>
+      <Link to="/home-page"><button >Volver a la pagina principal</button></Link>
     </form>
+    
   );
 };
 

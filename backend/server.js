@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const dotenv = require('dotenv');
+const path = require('path');
 const authRoutes = require('./routes/auth');
 const googleAuthRoutes = require('./routes/googleAuth');
 const User = require('./models/User');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 
 dotenv.config();
 
@@ -55,7 +57,7 @@ passport.use(new GoogleStrategy({
 
 // Ruta de callback de Google
 app.get('/api/auth/google/callback', passport.authenticate('google', {
-    successRedirect: '/dashboard',
+    successRedirect: '/home-page',
     failureRedirect: '/login'
 }));
 
@@ -85,9 +87,11 @@ passport.deserializeUser(async (id, done) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/auth', googleAuthRoutes);
 
-// Ruta para el dashboard después de iniciar sesión
-app.get('/dashboard', ensureAuthenticated, (req, res) => {
-    res.send('¡Bienvenido al dashboard!');
+// Configuración para servir el frontend
+app.use(express.static(path.join(__dirname, 'proyecto/src/components/Homepage.js')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'proyecto/src/components/Homepage.js', 'Homepage.js'));
 });
 
 const PORT = process.env.PORT || 5000;

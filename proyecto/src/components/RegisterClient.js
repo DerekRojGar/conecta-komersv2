@@ -56,32 +56,33 @@ const RegisterCliente = () => {
         window.location.href = 'http://localhost:5000/api/auth/google';
     };
 
+
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="register-client-form">
             <h1>Registro de usuario</h1>
             <div>
                 <label>Nombre</label>
-                <input placeholder="Juan" type="text" name="nombre" value={nombre} onChange={onChange} required />
+                <input type="text" name="nombre" value={nombre} onChange={onChange} required />
             </div>
             <div>
                 <label>Apellidos</label>
-                <input placeholder="López Galicia" type="text" name="apellidos" value={apellidos} onChange={onChange} required />
+                <input type="text" name="apellidos" value={apellidos} onChange={onChange} required />
             </div>
             <div>
                 <label>Correo electrónico</label>
-                <input placeholder="juan_lopgal@correo.com" type="email" name="correo" value={correo} onChange={onChange} required />
+                <input type="email" name="correo" value={correo} onChange={onChange} required />
             </div>
             <div>
                 <label>Contraseña</label>
-                <input placeholder="********" type="password" name="contraseña" value={contraseña} onChange={onChange} required />
+                <input type="password" name="contraseña" value={contraseña} onChange={onChange} required />
             </div>
             <div>
                 <label>Confirmar contraseña</label>
-                <input placeholder="********" type="password" name="confirmarContraseña" value={confirmarContraseña} onChange={onChange} required />
+                <input type="password" name="confirmarContraseña" value={confirmarContraseña} onChange={onChange} required />
             </div>
             <div>
                 <label>Número telefónico</label>
-                <input placeholder="1234567891" type="tel" name="telefono" value={telefono} onChange={onChange} required />
+                <input type="tel" name="telefono" value={telefono} onChange={onChange} required />
             </div>
             <button type="submit">REGISTRARME AHORA</button>
             <button type="button" className="google-login-button" onClick={onGoogleLogin}>
@@ -92,7 +93,8 @@ const RegisterCliente = () => {
                 <span>¿Eres un trabajador? </span>
                 <Link to="/register-trabajador">REGISTRO PARA TRABAJADOR</Link>
             </div>
-            
+            <br></br>
+            <Link to="/home-page"><button >Volver a la pagina principal</button></Link>
         </form>
     );
 };

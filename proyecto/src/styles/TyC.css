@@ -1,0 +1,21 @@
+.tyc-container {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tyc-container h1, 
+.tyc-container h2 {
+    color: #ffffff; /* Color amarillo para los títulos */
+}
+
+.tyc-container p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.tyc-container section {
+    margin-bottom: 20px;
+}

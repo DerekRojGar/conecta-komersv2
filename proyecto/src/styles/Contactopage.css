@@ -1,0 +1,99 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #ffff00;
+    text-decoration: none;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth-buttons .btn {
+    background-color: #ffff00;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #e0e000;
+}
+
+.contact-description {
+    text-align: left;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-description h2 {
+    margin-bottom: 2rem;
+}
+
+.contact-description p, .contact-description ul {
+    margin-bottom: 2rem;
+}
+
+.contact-description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-description ul li {
+    margin-bottom: 1rem;
+}
+
+.contact-description ul ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+footer {
+    background-color: #000; /* Color de fondo del footer */
+    color: #fff; /* Color del texto del footer */
+    text-align: center;
+    padding: 10px 0;
+    width: 100%; /* Asegúrate de que el footer ocupe todo el ancho de la página */
+    position: relative;
+    bottom: 0;
+  }
+  
+  .f1{
+    text-align: center;
+    padding: auto;
+  }
+  
+

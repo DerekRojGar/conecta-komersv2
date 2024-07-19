@@ -1,9 +1,13 @@
-form {
+.register-client-form {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
     max-width: 400px;
-    margin: 0 auto;
-    padding: 1em;
-    background: #1a1a1a;
-    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 h1 {
@@ -57,29 +61,3 @@ button:hover {
 .text-link a:hover {
     text-decoration: underline;
 }
-
-.google-login-button {
-    width: 100%;
-    padding: 1em;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #757575;
-    font-size: 1em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.google-login-button img {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.google-login-button:hover {
-    background-color: #f0f0f0;
-    border-color: #999;
-}
-
