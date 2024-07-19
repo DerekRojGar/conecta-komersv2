@@ -11,6 +11,7 @@ import Inicopage from './components/Iniciopage';
 import Contactopage from './components/Contactopage';
 import Serviciospage from './components/Serviciospage';
 import TyC from './components/TyC';
+import Bienvenida from './components/Bienvenida';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -27,6 +28,7 @@ root.render(
       <Route path="/contacto-page" element={<Contactopage />} />
       <Route path="/servicios-page" element={<Serviciospage />} />
       <Route path="/term-y-serv" element={<TyC />} />
+      <Route path="/bienvenida" element={<Bienvenida />} />
     </Routes>
   </Router>
 );

@@ -2,28 +2,28 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/RegisterClient.css';
 import { useNavigate, Link } from 'react-router-dom';
-import googleIcon from '../assets/google-icon.png'; // Asegúrate de tener el ícono de Google descargado
+import googleIcon from '../pictures/google-icon.png'; // Asegúrate de tener el ícono de Google descargado
 
 const RegisterCliente = () => {
     const [formData, setFormData] = useState({
         nombre: '',
         apellidos: '',
         correo: '',
-        contraseña: '',
+        contrasena: '',
         confirmarContraseña: '',
         telefono: ''
     });
 
     const navigate  = useNavigate();
 
-    const { nombre, apellidos, correo, contraseña, confirmarContraseña, telefono } = formData;
+    const { nombre, apellidos, correo, contrasena, confirmarContraseña, telefono } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = async e => {
         e.preventDefault();
 
-        if (contraseña !== confirmarContraseña) {
+        if (contrasena !== confirmarContraseña) {
             alert('Las contraseñas no coinciden');
             return;
         }
@@ -33,7 +33,7 @@ const RegisterCliente = () => {
                 nombre,
                 apellidos,
                 correo,
-                contraseña,
+                contrasena,
                 telefono,
                 tipoUsuario: 'cliente'
             });
@@ -41,7 +41,7 @@ const RegisterCliente = () => {
             if (res.data) {
                 console.log('Usuario registrado:', res.data);
                 alert('Usuario registrado exitosamente');
-                navigate('/login');
+                navigate('/bienvenida', {state: {nombre}});
             } else {
                 console.error('Error en el registro:', res);
                 alert('Error en el registro');
@@ -74,7 +74,7 @@ const RegisterCliente = () => {
             </div>
             <div>
                 <label>Contraseña</label>
-                <input type="password" name="contraseña" value={contraseña} onChange={onChange} required />
+                <input type="password" name="contrasena" value={contrasena} onChange={onChange} required />
             </div>
             <div>
                 <label>Confirmar contraseña</label>

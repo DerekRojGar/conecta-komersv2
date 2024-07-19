@@ -10,6 +10,8 @@ import Inicopage from './components/Iniciopage';
 import Contactopage from './components/Contactopage';
 import Serviciospage from './components/Serviciospage';
 import TyC from './components/TyC';
+import Bienvenida from './components/Bienvenida';
+
 
 const App = () => {
     return (
@@ -25,6 +27,7 @@ const App = () => {
                 <Route path="/contacto-page" component={Contactopage} />
                 <Route path="/servicios-page" component={Serviciospage} />
                 <Route path="/term-y-serv" component={TyC} />
+                <Route path="/bienvenida" component={Bienvenida} />
                 {/* Otras rutas */}
             </Switch>
         </Router>

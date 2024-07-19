@@ -118,7 +118,9 @@ function MapComponent() {
         </GoogleMap>
       </div>
     </LoadScript>
+    
   );
 }
+
 
 export default MapComponent;
