@@ -4,9 +4,11 @@ import lg1 from '../pictures/lg1.png';
 import target from '../pictures/target.png';
 import gears from '../pictures/gear.png';
 import {Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext'; // Importa el hook de autenticación
 
 
 const Inicopage = () => {
+    const { logout } = useAuth(); // Obtén la función de cierre de sesión del contexto de autenticación
     return (
         <>
             <header className="header">
@@ -22,7 +24,7 @@ const Inicopage = () => {
                     </ul>
                 </nav>
                 <div className="auth-buttons">
-                    <button className="login-button">INICIAR SESIÓN</button>
+                <button className="login-button" onClick={logout}>CERRAR SESIÓN</button> {/* Botón de cerrar sesión */}
                     <Link to="/register-client"><button className="register-button">REGISTRO</button></Link>
                 </div>
             </header>
