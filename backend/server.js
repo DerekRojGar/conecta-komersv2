@@ -56,11 +56,21 @@ passport.use(new GoogleStrategy({
   }
 }));
 
-// Ruta de callback de Google
+/* // Ruta de callback de Google
 app.get('/api/auth/google/callback', passport.authenticate('google', {
   successRedirect: '/dashboard',
   failureRedirect: '/login'
 }));
+*/
+
+// Ruta de callback de Google
+app.get('/api/auth/google/callback', passport.authenticate('google', {
+  failureRedirect: '/login'
+}), (req, res) => {
+  // Redirige al frontend en el puerto 3000 con el nombre del usuario
+  const userName = req.user.nombre; // Asumiendo que el nombre del usuario está en req.user.nombre
+  res.redirect(`http://localhost:3000/bienvenida?nombre=${encodeURIComponent(userName)}`);
+});
 
 // Middleware para verificar la autenticación del usuario
 function ensureAuthenticated(req, res, next) {

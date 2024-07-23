@@ -7,22 +7,23 @@ import {Link } from 'react-router-dom';
 const Homepage = () => {
     return (
       <><header className="header">
-        <div className="logo-container">
+      <div className="logo-container">
           <img src={lg1} alt="Logo" className="logo-componentes" />
-          <Link to="/"><div className="logo">CONECTA KOMERS</div></Link>
+          <Link to="/home-page"><div className="logo">CONECTA KOMERS</div></Link>
       </div>
-        <nav>
+      <nav>
           <ul>
-            <li><a href="/inicio-page">INICIO</a></li>
-            <li><a href="/servicios-page">SERVICIOS</a></li>
-            <li><a href="/contacto-page">CONTACTO</a></li>
+              <li><a href="inicio-page">INICIO</a></li>
+              <li><a href="servicios-page">SERVICIOS</a></li>
+              <li><a href="contacto-page">CONTACTO</a></li>
           </ul>
-        </nav>
-        <div className="auth-buttons">
+      </nav>
+      <div className="auth-buttons">
           <button className="login-button">INICIAR SESIÓN</button>
           <Link to="/register-client"><button className="register-button">REGISTRO</button></Link>
-        </div>
-      </header><main className="main-content">
+      </div>
+  </header>
+      <main className="main-content">
           <section className="hero">
             <h1>TRABAJADORES A TU ALCANCE</h1>
             <h2>CONECTANDO PERSONAS</h2>

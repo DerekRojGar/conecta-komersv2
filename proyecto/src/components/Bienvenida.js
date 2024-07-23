@@ -1,17 +1,28 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+// src/components/Bienvenida.js
+
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/bienvenida.css';
 import icon from '../pictures/icono-client.png';
 
-
-
 const Bienvenida = () => {
     const location = useLocation();
-    const { nombre } = location.state || { nombre: 'Usuario' }; // Valor por defecto 'Usuario'
+    const navigate = useNavigate();
+    const params = new URLSearchParams(location.search);
+    const nombre = params.get('nombre') || 'Usuario'; // Obtener el nombre de la URL o usar 'Usuario' por defecto
+
+    useEffect(() => {
+        // Redireccionar después de 3 segundos
+        const timer = setTimeout(() => {
+            navigate('/home-page'); // Redirige a Homepage
+        }, 3000);
+
+        // Limpiar el temporizador si el componente se desmonta
+        return () => clearTimeout(timer);
+    }, [navigate]);
 
     return (
         <div className="bienvenida-container">
-            
             <div className="contenido">
                 <img src={icon} alt="Icono" className="icono" />
                 <h1>Bienvenido</h1>
