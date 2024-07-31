@@ -7,8 +7,8 @@ const UserSchema = new mongoose.Schema({
     contrasena: { type: String},
     telefono: { type: String },
     tipoUsuario: { type: String },
-    tipoTrabajo: { type: [String] }, // Tipo de trabajo como array de strings
-    googleId: { type: String } 
+    googleId: { type: String }
+
 });
 
 const User = mongoose.model('User', UserSchema);

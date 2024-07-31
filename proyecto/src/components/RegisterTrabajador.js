@@ -1,8 +1,5 @@
-// src/components/RegisterWorker.js
-import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/RegisterTrabajador.css';
-import {Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const RegisterTrabajador = () => {
   const [formData, setFormData] = useState({
@@ -10,13 +7,18 @@ const RegisterTrabajador = () => {
     apellidos: '',
     correo: '',
     contrasena: '',
-    confirmarContrasena:'',
+    confirmarContrasena: '',
     telefono: '',
     tipoTrabajo: [],
-    //tipoUsuario: 'Trabajador'  // Define el tipo de usuario como 'trabajador'
+    tipoUsuario: 'Trabajador',
+    archivos: {
+      archivoINE: '',
+      archivoAntecedentes: '',
+      archivoResponsiva: ''
+    }
   });
 
-  const { nombre, apellidos, correo, contrasena, confirmarContrasena,telefono, tipoTrabajo } = formData;
+  const { nombre, apellidos, correo, contrasena, confirmarContrasena, telefono, tipoTrabajo, archivos } = formData;
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -24,13 +26,45 @@ const RegisterTrabajador = () => {
     const { value, checked } = e.target;
     setFormData(prevState => {
       if (checked) {
-        // Add the checked value to the array
         return { ...prevState, tipoTrabajo: [...prevState.tipoTrabajo, value] };
       } else {
-        // Remove the unchecked value from the array
         return { ...prevState, tipoTrabajo: prevState.tipoTrabajo.filter(tipo => tipo !== value) };
       }
     });
+  };
+
+  const onFileChange = async e => {
+    const { name, files } = e.target;
+    const file = files[0];
+    if (file) {
+      if (file.type !== 'application/pdf') {
+        alert('Solo se permiten archivos PDF.');
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append(name, file);
+  
+      try {
+        const res = await axios.post(`http://localhost:5000/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+  
+        // Verificar que el archivo se ha subido correctamente
+        if (res.data.uploadedFiles && res.data.uploadedFiles.length > 0) {
+          setFormData(prevState => ({
+            ...prevState,
+            archivos: { ...prevState.archivos, [name]: res.data.uploadedFiles[0].url }
+          }));
+        } else {
+          console.error('No se ha recibido el URL del archivo subido.');
+        }
+      } catch (err) {
+        console.error('Error uploading file:', err);
+      }
+    }
   };
 
   const onSubmit = async e => {
@@ -40,8 +74,13 @@ const RegisterTrabajador = () => {
       alert('Las contraseñas no coinciden');
       return;
     }
+
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post('http://localhost:5000/api/auth/register', { ...formData, documentos: [
+        { tipo: 'INE', url: archivos.archivoINE },
+        { tipo: 'Antecedentes', url: archivos.archivoAntecedentes },
+        { tipo: 'Responsiva', url: archivos.archivoResponsiva }
+      ] });
       console.log('Usuario registrado exitosamente:', res.data);
     } catch (err) {
       console.error('Error en el registro:', err.response.data);
@@ -49,19 +88,16 @@ const RegisterTrabajador = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="register-worker-form">
-      <h2>Registro de trabajador</h2>
-      <input type="text" name="nombre" placeholder="Nombre" value={nombre} onChange={onChange} required />
-      <input type="text" name="apellidos" placeholder="Apellidos" value={apellidos} onChange={onChange} required />
-      <input type="email" name="correo" placeholder="Correo electrónico" value={correo} onChange={onChange} required />
-      <input type="password" name="contrasena" placeholder="Contraseña" value={contrasena} onChange={onChange} required />
-      <input type="password" name="confirmarContrasena" placeholder="Confirmar Contraseña" value={confirmarContrasena} onChange={onChange} required />
-      <input type="text" name="telefono" placeholder="Número telefónico" value={telefono} onChange={onChange} required />
-      {/* <input type="file" name="ine" onChange={handleFileChange} required />
-      <input type="file" name="antecedentes" onChange={handleFileChange} required />
-      <input type="file" name="responsiva" onChange={handleFileChange} required /> */}
-      <h2>¿Qué tipo de trabajo realizas?</h2>
+    <form onSubmit={onSubmit}>
+      <input type="text" name="nombre" value={nombre} onChange={onChange} placeholder="Nombre" required />
+      <input type="text" name="apellidos" value={apellidos} onChange={onChange} placeholder="Apellidos" />
+      <input type="email" name="correo" value={correo} onChange={onChange} placeholder="Correo" required />
+      <input type="password" name="contrasena" value={contrasena} onChange={onChange} placeholder="Contraseña" required />
+      <input type="password" name="confirmarContrasena" value={confirmarContrasena} onChange={onChange} placeholder="Confirmar Contraseña" required />
+      <input type="text" name="telefono" value={telefono} onChange={onChange} placeholder="Teléfono" />
+      
       <label>Tipo de Trabajo:</label>
+      <div>
         <label>
           <input
             type="checkbox"
@@ -70,17 +106,17 @@ const RegisterTrabajador = () => {
             checked={tipoTrabajo.includes('herreria')}
             onChange={onCheckboxChange}
           />
-          Herrería
+          Herreria
         </label>
         <label>
           <input
             type="checkbox"
             name="tipoTrabajo"
-            value="plomeria"
-            checked={tipoTrabajo.includes('plomeria')}
+            value="albañileria"
+            checked={tipoTrabajo.includes('albañileria')}
             onChange={onCheckboxChange}
           />
-          Plomería
+          Albañileria
         </label>
         <label>
           <input
@@ -90,29 +126,19 @@ const RegisterTrabajador = () => {
             checked={tipoTrabajo.includes('carpinteria')}
             onChange={onCheckboxChange}
           />
-          Carpintería
+          Carpinteria
         </label>
-        <label>
-          <input
-            type="checkbox"
-            name="tipoTrabajo"
-            value="albanileria"
-            checked={tipoTrabajo.includes('albanileria')}
-            onChange={onCheckboxChange}
-          />
-          Albañilería
-        </label>      
-      {/* <select name="tipoTrabajo" value={formData.tipoTrabajo} onChange={handleChange} required>
-        <option value="">¿Qué tipo de trabajo realizas?</option>
-        <option value="Carpintero">Ploemeero 2</option>
-        <option value="Plomero">Plomero</option>
-        <option value="Herrero">Herrero</option>
-        <option value="Jardinero">Jardinero</option>
-      </select> */}
-      <button type="submit">Registrarme ahora</button>
-      <Link to="/"><button >Volver a la pagina principal</button></Link>
+      </div>
+
+      <label>Subir INE:</label>
+      <input type="file" name="archivoINE" onChange={onFileChange} />
+      <label>Subir Antecedentes:</label>
+      <input type="file" name="archivoAntecedentes" onChange={onFileChange} />
+      <label>Subir Responsiva:</label>
+      <input type="file" name="archivoResponsiva" onChange={onFileChange} />
+
+      <button type="submit">Registrarse</button>
     </form>
-    
   );
 };
 

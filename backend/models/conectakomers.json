@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "conectakomers-36d30",
+  "private_key_id": "cbab1fe1198cb3d9a7e55a73b86376cdd3e3013f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEu8tMXSrmbGla\nPZJkU6XXXf53ebJD8XTfPBt8TmxPRk+BM8liJlAbxZsRwH+hzTYN8OSRoNkhRbOJ\ncHnRN0norSsXBdll3FmAEAkt1Sk3RogsGabOcc3fuIp99BwbBCWcyJ6Rg3YvROEJ\nwMCdOvUTk5ChLxytglYjnSW8fzEgOx2l7Rclp/fQ68Vqvu7zlThzBa1LkwLFlwcp\nJusgRuhtLfE4pN4U17zSN1UUJaiFZm9kZOexCCvLUSEMRGrqEO8XfBohBcMX7g8P\nCYq8OPq4Ekw2zhB5RDKKgLW3kPGBoBRTknEBPf8UykpY9rWmaw+HMXb8DNG/CEFw\nmU4gfR29AgMBAAECggEAL+ELZHGdPfh++FsZTGjuKNjDlDSuLapvOOAiSVG1uuJf\n+ZAOsCAmaWfhakPY3Bo7EFAC9K06gsY5oFabEw+bYXD5lnASPV/P+WKNtVWWIxF7\nlQ4GImKgidTaAbbd+zY6aCqMKtpdcjoXcZ3zUqC1YfcNISk7179rct3tP++Nl2vV\nvBQ24shxJ0FpZTnMfrEzlB771QwA+nsOntqwZSBsliMcb1ItyVLFLPe4Xw39PXka\n5J2DBkhn6y/yj9dqt8umxp244Z4uRrQjTZY07T8nf9A9qNeiirl0xCUoOgj3xBha\niWB7EaFOCUD7WtMFAMchp3JX/ze3Hw6jgbhDG6ZEmQKBgQD8K5KB8D5JouZslZKs\nQWyM3KytbxeIC4axI6YX1qcGnv4Hb6yHWa/mQRT38tlcyv4JVEf0Tspig11Zmtoy\ntBxynQI7f9oqWZU/6i8Sl0Pvp8lJpeLh0uYZg26cu5RmCWof8C0JR+IyAIzGCq8i\nQU6+5ozWUzfxgzRw95cA8/imCQKBgQDHuK+5CYaWlBeoeP4GFvjrgsoLEWYvIjbf\nFduN5o9wYlyCFJb5rL7WHiJ9osE9BcdsWuzyGl9st4RMBdVY2ZEkHuJp/WQUae5g\n+GjfUS/S6nFH6ydCwVksqN9AgFjamNnylDJ1QbynlJIwYqQ8z24sUfrlOdHK9WHK\njWedSXNHFQKBgQCWQjRjfs7uu8WH0Dx8reNLsDaohXjFFPEmXjKbI8mU1WpS7gUl\nBZkdn4wqDqfcdgyXbIQPnF9WAia+vNnlupL07H+nCpDqCUU4t4djEYVmqVj0rIcb\nvrpjW4CunctYXaXB8DA1xoKO/urjGvyucbHFaMVk9GNyYpb99VoiND3mWQKBgA9i\n+h6+TiEhraTsFV3wvSKfw+MQZxfwgduz+mM3RQu6eDgJUAxSM62ZSrz1IgAKhu+h\nHaoVQA7HIKkete4PbPAkdPsHa4NrGdNcr++seIu+RhXtVuv8q1sWc4SrnqzQo9Hd\nevmvo9IhTxXtM4v/yxQdCMBKMRB60Rriw/3JH9l1AoGASqFMYFzZy7lIMDJ+XKMX\no+vLYSWXldxFydYNSdUkM347CNpZHbTnX5J8ad5Jy/KfQXKihOE3YdFiwDRjrPXk\n//iDW/ku57QBNSFvX7QXLbHfgV7bVhH6njzFnOYc5ipV+GruztoC9H+C5uQoNCea\nD/o8fm8ymszrobHxTGOuaRw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-di6zo@conectakomers-36d30.iam.gserviceaccount.com",
+  "client_id": "116778687953758400256",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-di6zo%40conectakomers-36d30.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
