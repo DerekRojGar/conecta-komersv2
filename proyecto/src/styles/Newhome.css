@@ -1,0 +1,15 @@
+.navbar {
+    transition: top 0.3s;
+  }
+  
+  .navbar-hidden {
+    top: -100px; /* Ajusta este valor según el tamaño de tu barra de navegación */
+  }
+  
+  .navbar-visible {
+    top: 0;
+  }
+
+  .product-img:hover .btn {
+    display: block;
+  }

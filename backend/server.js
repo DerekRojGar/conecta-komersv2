@@ -1,4 +1,3 @@
-//server
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -9,16 +8,17 @@ const authRoutes = require('./routes/auth');
 const googleAuthRoutes = require('./routes/googleAuth');
 const User = require('./models/User');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const multer = require('multer');
-const { v4: uuidv4 } = require('uuid');
-const firebaseConfig = require('./models/firebaseConfig'); 
-const uploadRouter = require('./routes/upload-file');
 
 dotenv.config();
 
 const app = express();
 
-app.use(cors()); // Habilita CORS
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
 app.use(express.json());
 
 app.use(session({
@@ -45,12 +45,11 @@ passport.use(new GoogleStrategy({
   try {
     let user = await User.findOne({ googleId: profile.id });
     if (!user) {
-      // Crea un nuevo usuario si no existe
       user = new User({
         googleId: profile.id,
         nombre: profile.displayName,
         correo: profile.emails[0].value,
-        tipoUsuario: 'Cliente' // Asigna un tipo de usuario por defecto si es necesario
+        tipoUsuario: 'Cliente' // Asigna un tipo de usuario por defecto
       });
       await user.save();
     }
@@ -60,21 +59,6 @@ passport.use(new GoogleStrategy({
   }
 }));
 
-// Ruta de callback de Google
-app.get('/api/auth/google/callback', passport.authenticate('google', {
-  successRedirect: '/dashboard',
-  failureRedirect: '/login'
-}));
-
-// Middleware para verificar la autenticación del usuario
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
-}
-
-// Configuración de serialización y deserialización de usuario
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -88,12 +72,9 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-// Rutas principales de autenticación y aplicación
 app.use('/api/auth', authRoutes);
 app.use('/api/auth', googleAuthRoutes);
-app.use('/upload', uploadRouter)
 
-// Ruta para el dashboard después de iniciar sesión
 app.get('/dashboard', ensureAuthenticated, (req, res) => {
   res.send('¡Bienvenido al dashboard!');
 });

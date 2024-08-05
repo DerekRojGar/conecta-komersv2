@@ -1,29 +1,13 @@
-import React from "react";
+import React from 'react';
+
 import {Link } from 'react-router-dom';
 import '../styles/TyC.css';
-import lg1 from '../pictures/lg1.png';
+
 
 const TyC = () => {
     return (
         <>
-        <header className="header">
-        <div className="logo-container">
-          <img src={lg1} alt="Logo" className="logo-componentes" />
-          <Link to="/home-page"><div className="logo">CONECTA KOMERS</div></Link>
-      </div>
-        <nav>
-          <ul>
-            <li><a href="inicio-page">INICIO</a></li>
-            <li><a href="/servicios-page">SERVICIOS</a></li>
-            <li><a href="/contacto-page">CONTACTO</a></li>
-          </ul>
-        </nav>
-        <div className="auth-buttons">
-          <button className="login-button">INICIAR SESIÓN</button>
-          <Link to="/register-client"><button className="register-button">REGISTRO</button></Link>
-        </div>
-      </header>
-      <main>
+      <main style={{ backgroundColor: 'black', color: 'black' }}>
             <div className="tyc-container">
                 <h1>Términos y Condiciones de Conecta Komers</h1>
 
@@ -94,16 +78,62 @@ const TyC = () => {
                 </section>
                 <Link to="/home-page"><button>Volver a la pagina principal</button></Link>
             </div>
-        </main>
-        <footer>
-                <img src={lg1} alt="Logo" className="logo-componentes" />
-                <h1>Conecta-KomersⓇ</h1>
-                <p>Copyright 2024 por Equipo Perrón. Todos los derechos reservados.</p>
-            </footer><footer className='f1'>
-                <p>Conecta-KomersⓇ</p>
-                <p>Conecta-Komers está optimizado para la comunicación y la formación. Los usuarios son ajenos al sitio, somos el medio de contacto y contratacion.
-                    Al utilizar Conecta-Komers, usted acepta haber leído y aceptado nuestros <Link to="/term-y-serv">términos de uso, política y privacidad.</Link></p>
-            </footer></>
+        
+                {/* Footer */}
+                <div className="container-fluid bg-dark text-white py-5 px-sm-3 px-lg-5" style={{ marginTop: '90px' }}>
+        <div className="row pt-5">
+          <div className="col-12 mb-4 px-4">
+            <div className="row mb-5 p-4" style={{ background: 'rgba(256, 256, 256, .05)' }}>
+              <div className="col-md-4">
+                <div className="text-md-center">
+                  <h5 className="text-uppercase mb-2" style={{ letterSpacing: '5px', color:'white' }}>Nuestra oficina</h5>
+                  <p className="mb-4 m-md-0">Antiguo Camino a La Resurrección 1002 - A, Zona Industrial, 72300 Heroica Puebla de Zaragoza, Pue.</p>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="text-md-center">
+                  <h5 className="text-uppercase mb-2" style={{ letterSpacing: '5px', color:'white'}}>Nuestro Email</h5>
+                  <p className="mb-4 m-md-0">utp0141854@alumno.utpuebla.edu.mx</p>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="text-md-center">
+                  <h5 className="text-uppercase mb-2" style={{ letterSpacing: '5px', color:'white' }}>Llamanos</h5>
+                  <p className="m-0">+52 2211498090</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-7 col-md-12">
+            <div className="row">
+              <div className="col-md-6 mb-5">
+                <p>
+                Conecta-Komers está optimizado para la comunicación y la formación. Los usuarios son ajenos al sitio, somos el medio de contacto y contratacion.
+                Al utilizar Conecta-Komers, usted acepta haber leído y aceptado nuestros <Link to="/term-y-serv">términos de uso, política y privacidad.</Link>
+                </p>
+                <div className="d-flex justify-content-start mt-4">
+                  <a className="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+                  <a className="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                  <a className="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://mx.linkedin.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+                  <a className="btn btn-lg btn-outline-light btn-lg-square" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                </div>
+              </div>
+              <div className="col-md-6 mb-5">
+                <h5 className="text-primary text-uppercase mb-4" style={{ letterSpacing: '5px'}}>Nosotros</h5>
+                <div className="d-flex flex-column justify-content-start">
+                  <a className="text-white btn-scroll mb-2" href="#about"><i className="fa fa-angle-right mr-2"></i>Objetivo</a>
+                  <a className="text-white btn-scroll mb-2" href="#service"><i className="fa fa-angle-right mr-2"></i>Servicios</a>
+                  <a className="text-white btn-scroll mb-2" href="#project"><i className="fa fa-angle-right mr-2"></i>Proyecto</a>
+                  <a className="text-white btn-scroll mb-2" href="#faqs"><i className="fa fa-angle-right mr-2"></i>FAQs</a>
+                  <a className="text-white btn-scroll mb-2" href="#testimonial"><i className="fa fa-angle-right mr-2"></i>Testimonios</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        {/* Final Footer */}
+        </main></>
     )
 };
 

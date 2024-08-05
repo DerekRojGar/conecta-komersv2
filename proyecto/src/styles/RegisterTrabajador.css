@@ -1,70 +1,63 @@
+
 .register-worker-form {
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .register-worker-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .register-worker-form input[type="text"],
-  .register-worker-form input[type="email"],
-  .register-worker-form input[type="password"],
-  .register-worker-form select {
-    background-color: #333;
-    border: none;
-    padding: 10px;
-    color: #fff;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .register-worker-form .file-input {
-    background-color: #333;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .register-worker-form .file-input label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .register-worker-form .file-input input {
-    width: 100%;
-  }
-  
-  .register-worker-form button {
-    background-color: #ff0;
-    color: #000;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .register-worker-form button:hover {
-    background-color: #cc0;
-  }
-  
-  .register-worker-form select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 10px;
-  }
-  
-  .register-worker-form option {
-    background-color: #333;
-    color: #fff;
-  }
-  
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register-worker-form input[type="text"],
+.register-worker-form input[type="email"],
+.register-worker-form input[type="password"],
+.register-worker-form .file-input {
+  background-color: #333;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.register-worker-form .file-input {
+  padding: 5px;
+}
+
+.register-worker-form .file-input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.register-worker-form .file-input input {
+  width: 100%;
+}
+
+.register-worker-form button {
+  background-color: #ff0;
+  color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-worker-form button:hover {
+  background-color: #cc0;
+}
+
+.register-worker-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px;
+}
+
+.register-worker-form option {
+  background-color: #333;
+  color: #fff;
+}
+

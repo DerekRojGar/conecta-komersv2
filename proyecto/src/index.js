@@ -12,7 +12,12 @@ import Contactopage from './components/Contactopage';
 import Serviciospage from './components/Serviciospage';
 import TyC from './components/TyC';
 import Bienvenida from './components/Bienvenida';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import NewHome from './components/NewHome';
 import { AuthProvider } from './contexts/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -25,12 +30,16 @@ root.render(
         <Route path="/register-client" element={<RegisterClient />} />
         <Route path="/register-trabajador" element={<RegisterTrabajador />} />
         <Route path="/map" element={<MapComponent />} />
-        <Route path="/" element={<RegisterClient />} />
+        {/* <Route path="/" element={<RegisterClient />} /> */}
         <Route path="/inicio-page" element={<Inicopage />} />
         <Route path="/contacto-page" element={<Contactopage />} />
         <Route path="/servicios-page" element={<Serviciospage />} />
         <Route path="/term-y-serv" element={<TyC />} />
         <Route path="/bienvenida" element={<Bienvenida />} />
+        <Route path="/newhome" element={<NewHome />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<NewHome />} />
       </Routes>
     </AuthProvider>
   </Router>

@@ -11,7 +11,12 @@ import Contactopage from './components/Contactopage';
 import Serviciospage from './components/Serviciospage';
 import TyC from './components/TyC';
 import Bienvenida from './components/Bienvenida';
+import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import NewHome from './components/NewHome';
+import Login from './components/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { AuthProvider } from './contexts/AuthContext';
 
 const App = () => {
@@ -27,7 +32,11 @@ const App = () => {
           <Route path="/contacto-page" element={<Contactopage />} />
           <Route path="/servicios-page" element={<Serviciospage />} />
           <Route path="/term-y-serv" element={<TyC />} />
-          <Route path="/" element={<Homepage />} />
+          <Route path="/home-page" element={<Homepage />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/newhome" element={<NewHome />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<NewHome />} />
           <Route path="/bienvenida" element={
             <ProtectedRoute>
               <Bienvenida />

@@ -14,7 +14,7 @@ const Bienvenida = () => {
     useEffect(() => {
         // Redireccionar después de 3 segundos
         const timer = setTimeout(() => {
-            navigate('/home-page'); // Redirige a Homepage
+            navigate('/map'); // Redirige a Homepage
         }, 3000);
 
         // Limpiar el temporizador si el componente se desmonta
