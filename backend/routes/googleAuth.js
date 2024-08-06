@@ -1,3 +1,4 @@
+//backend/routes/googleAuth.js
 const express = require('express');
 const passport = require('passport');
 
@@ -12,7 +13,7 @@ router.get('/google', passport.authenticate('google', {
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
     // Redirige a la página principal o a donde desees después del login exitoso
-    res.redirect('/NewHome');
+    res.redirect('/Homepage');
   }
 );
 
